@@ -1,1 +1,1 @@
-./cmake-build/ntt_cpu_test 12 1
+./cmake-build/test_ntt_cpu 12 1
