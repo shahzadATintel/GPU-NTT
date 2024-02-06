@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.2)
 
-set(CMAKE_CUDA_STANDARD 17)
+#set(CMAKE_CUDA_STANDARD 17)
 
 if(NOT DEFINED CMAKE_CUDA_ARCHITECTURES)
     set(CMAKE_CUDA_ARCHITECTURES 86)
@@ -15,9 +15,9 @@ endif()
 # NTT_Library
 add_library(NTT_Library src/common.cu src/nttparameters.cu src/ntt_cpu.cu src/ntt.cu)
 
-if(NOT "${CMAKE_CUDA_BYTE_ORDER}" STREQUAL "LITTLE_ENDIAN")
-    message(FATAL_ERROR "Target architecture must be little-endian")
-endif()
+#if(NOT "${CMAKE_CUDA_BYTE_ORDER}" STREQUAL "LITTLE_ENDIAN")
+#    message(FATAL_ERROR "Target architecture must be little-endian")
+#endif()
 
 set_target_properties(NTT_Library PROPERTIES CUDA_SEPARABLE_COMPILATION ON)
 
