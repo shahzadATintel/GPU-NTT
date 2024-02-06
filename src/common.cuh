@@ -5,7 +5,7 @@
 #include <exception>
 #include <iostream>
 #include <string>
-
+#include <limits>
 class CudaException : public std::exception
 {
    public:

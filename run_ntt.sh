@@ -1,0 +1,1 @@
+./cmake-build/ntt_cpu_test 12 1
