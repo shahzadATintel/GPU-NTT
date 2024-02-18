@@ -57,7 +57,7 @@ int main(int argc, char* argv[])
     int N = 1 << LOGN;
     int ROOT_SIZE = N >> 1;
 
-    const int test_count = 100;
+    const int test_count = 10;
     const int bestof = 25;
     float time_measurements[test_count];
     for (int loop = 0; loop < test_count; loop++)
