@@ -1,7 +1,34 @@
-#include <cstdlib>  // For atoi or atof functions
+#include <cstdlib>  // 
 #include <random>
+#include <iostream>
+#include <vector>
+#include <string>
 
 #include "../src/ntt.cuh"
+
+template<typename T>
+void printVectorSize(const std::vector<T>& vec) {
+    // Calculate size in bytes
+    size_t sizeInBytes = sizeof(T) * vec.size();
+    
+    double sizeToPrint = sizeInBytes; // The size to print
+    std::string unit = "Bytes"; // Default unit
+
+    // Convert to MB or GB if necessary
+    if (sizeInBytes >= 1024 * 1024 * 1024) {
+        sizeToPrint = sizeInBytes / (1024.0 * 1024.0 * 1024.0);
+        unit = "GB";
+    } else if (sizeInBytes >= 1024 * 1024) {
+        sizeToPrint = sizeInBytes / (1024.0 * 1024.0);
+        unit = "MB";
+    } else if (sizeInBytes >= 1024) {
+        sizeToPrint = sizeInBytes / 1024.0;
+        unit = "KB";
+    }
+
+    // Print the size with appropriate unit
+    std::cout << "Vector size: " << sizeToPrint << " " << unit << std::endl;
+}
 
 #define DEFAULT_MODULUS
 
@@ -79,7 +106,7 @@ int main(int argc, char* argv[])
         }
         Ninverse n_inv = dis2(gen);
 #endif
-
+        printVectorSize(forward_root_table);
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         Data* InOut_Datas;
